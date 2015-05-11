@@ -1,0 +1,31 @@
+@(loginForm: Form[Application.Login], user : models.website.User)
+
+@if(user == null) {
+
+    @helper.form(action = routes.Application.authenticate()) {
+        @if(loginForm.hasGlobalErrors) {
+            <p class="error">
+                <span class="label label-danger">@loginForm.globalError.message</span>
+            </p>
+        }
+
+        @helper.inputText(
+            loginForm("email"),
+            'placeholder -> "email",
+            '_label -> "Enter your email :",
+            '_help -> "",
+            'class -> "inputText"
+        )
+        @helper.inputPassword(
+            loginForm("password"),
+            '_label -> "Enter your password :",
+            'placeholder -> "password",
+            '_help -> "",
+            'class -> "inputText"
+        )
+        <input type="submit" value="Connexion">
+    }
+} else {
+    Login : @user.name
+    <a href="disconnect">Disconnect</a>
+}

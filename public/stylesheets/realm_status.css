@@ -1,0 +1,76 @@
+/* =========== CMS: realm status =========== */
+.realm {
+    color:#a07332;
+    font-size:14px;
+}
+
+.realm .realm_online {
+    color:#3d4346;
+    float:right;
+    font-size:12px;
+}
+
+.realm .realm_bar, .poll_bar {
+    height:13px;
+    border:1px solid #080e14;
+    background-color:#000000;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+    -webkit-border-radius:4px;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+.poll_bar_fill {
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -ms-border-radius:2px;
+    -o-border-radius:2px;
+    -webkit-border-radius:2px;
+    background-image: url(../images/realm_bar.png);
+    height:9px;
+    margin-top:2px;
+    margin-right:1px;
+}
+
+.realm_bar_fill_a {
+    background-image:url(../images/realm_bar_a.png);
+    float: left;
+    border-radius:2px 0 0 2px;
+    -moz-border-radius:2px;
+    -ms-border-radius:2px;
+    -o-border-radius:2px;
+    -webkit-border-radius:2px;
+    height:9px;
+    margin-top:2px;
+    margin-left:1px;
+}
+
+.realm_bar_fill_h {
+    background-image: url(../images/realm_bar_h.png);
+    float: right;
+    border-radius:0 2px 2px 0;
+    -moz-border-radius:2px;
+    -ms-border-radius:2px;
+    -o-border-radius:2px;
+    -webkit-border-radius:2px;
+    height:9px;
+    margin-top:-9px;
+    margin-left:2px;
+}
+
+.realmlist {
+    border:1px solid #080e14;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+    -webkit-border-radius:4px;
+    background-color:#000000;
+    padding:5px;
+    text-align:center;
+    color:#a07332;
+    font-size:12px;
+}

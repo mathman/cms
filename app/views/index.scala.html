@@ -1,0 +1,19 @@
+@(title: String, loginForm: Form[Application.Login], user : models.website.User, messages : List[models.website.Message])
+
+@main(title, loginForm, user) {
+    @messages.map { message =>
+        <article>
+            <div class="tittle">
+                <h1>@message.title</h1>
+            </div>
+            <div class="content">
+                @message.content
+                <div class="clear"></div>
+
+                <div class="news_bottom">
+                    Posted by <a href="/">@message.author</a> on @message.timestamp
+                </div>
+            </div>
+        </article>
+    }
+}

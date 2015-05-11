@@ -1,0 +1,79 @@
+@(title: String, loginForm: Form[Application.Login], user : models.website.User, realms : List[models.Auth.Realm])
+
+<script type="text/javascript">
+function datatable (name)
+{
+    $('#onlines_table').dataTable( {
+        "bProcessing": true,
+        "aaSorting": [[ 0, "asc" ]],
+        "bServerSide": true,
+        "sAjaxSource": "/onlinesAjax/" + name,
+        "language": {
+            "zeroRecords": "No players found - sorry",
+            "infoEmpty": "No players available"
+        },
+        "bDestroy": true,
+        "columnDefs": [
+            {
+                "targets": [ 2 ],
+                "mRender": function ( data, type, full ) {
+                    return '<img src="/assets/images/icons/race/' + data + '.gif" />';
+                }
+            },
+            {
+                "targets": [ 3 ],
+                "mRender": function ( data, type, full ) {
+                    return '<img src="/assets/images/icons/class/' + data + '.gif" />';
+                }
+            },
+            {
+                "targets": 0,
+                "width": "70%"
+            },
+            {
+                "targets": [1, 2, 3 ],
+                "width": "10%",
+                className: "icon_column"
+            }
+        ]
+    });
+}
+</script>
+
+@main(title, loginForm, user) {
+    <article>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                datatable("@realms(0).name");
+            } );
+        </script>
+        <div class="select-realm">
+            Select realms:
+
+            <select onchange="datatable(this.value);">
+                @realms.map { realm =>
+                    <option value="@realm.name">@realm.name</option>
+                }
+            </select>
+        </div>
+        <div class="side_divider"></div>
+        <table id="onlines_table" class="row-border" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Level</th>
+                    <th>Race</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                    <td>Row 1 Data 3</td>
+                    <td>Row 1 Data 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+}

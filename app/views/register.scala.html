@@ -1,0 +1,35 @@
+@(title: String, loginForm: Form[Application.Login], registerForm: Form[HowToConnect.Register], user : models.website.User)
+
+@main(title, loginForm, user) {
+    @helper.form(action = routes.HowToConnect.save()) {
+        @if(registerForm.hasGlobalErrors) {
+            <p class="error">
+                <span class="label label-danger">@registerForm.globalError.message</span>
+            </p>
+        }
+
+        @helper.inputText(
+            registerForm("fullname"),
+            'placeholder -> "fullname",
+            '_label -> "Enter your fullname :",
+            '_help -> "",
+            'class -> "inputText"
+        )
+
+        @helper.inputText(
+            registerForm("email"),
+            'placeholder -> "email",
+            '_label -> "Enter your email :",
+            '_help -> "",
+            'class -> "inputText"
+        )
+        @helper.inputPassword(
+            registerForm("password"),
+            '_label -> "Enter your password :",
+            'placeholder -> "password",
+            '_help -> "",
+            'class -> "inputText"
+        )
+        <input type="submit" value="Register">
+    }
+}
